@@ -15,7 +15,13 @@ class CreatePromosTable extends Migration
     {
         Schema::create('promos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('produk_id')->unsigned();
+            $table->string('kode_promo');
+            $table->string('nama_promo');
+            $table->integer('nilai_promo');
             $table->timestamps();
+
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');
         });
     }
 

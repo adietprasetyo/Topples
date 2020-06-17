@@ -15,7 +15,11 @@ class CreateMerksTable extends Migration
     {
         Schema::create('merks', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('produk_id')->unsigned();
+            $table->string('nama_merk');
             $table->timestamps();
+
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');
         });
     }
 

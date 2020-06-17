@@ -15,7 +15,11 @@ class CreateDiskusisTable extends Migration
     {
         Schema::create('diskusis', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('produk_id')->unsigned();
+            $table->string('diskusi');
             $table->timestamps();
+
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');
         });
     }
 

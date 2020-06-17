@@ -15,7 +15,12 @@ class CreateInfoProduksTable extends Migration
     {
         Schema::create('info_produks', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('produk_id')->unsigned();
+            $table->integer('berat');
+            $table->varchar('kondisi');
             $table->timestamps();
+
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');
         });
     }
 
