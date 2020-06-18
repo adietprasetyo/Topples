@@ -14,7 +14,8 @@ class PromoController extends Controller
      */
     public function index()
     {
-        //
+            $promos = Promo::all();
+            return view('promo.index', compact('promos'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PromoController extends Controller
      */
     public function create()
     {
-        //
+        return view('promo.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class PromoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'kode_promo' => 'required',
+            'nama_promo' => 'required',
+            'nilai_promo' => 'required'
+        ]);
+        Promo::create($validateDate);
+        $request->session()->flash('pesan', "Data {$validateDate['produk_id']} Saved ");
+        return redirect()->route('promo.index');
     }
 
     /**
@@ -46,7 +54,7 @@ class PromoController extends Controller
      */
     public function show(Promo $promo)
     {
-        //
+        return view('promo.show', compact('promo'));
     }
 
     /**
@@ -57,7 +65,7 @@ class PromoController extends Controller
      */
     public function edit(Promo $promo)
     {
-        //
+        return view('promo.edit',['promo'=>$promo]);
     }
 
     /**
@@ -69,7 +77,13 @@ class PromoController extends Controller
      */
     public function update(Request $request, Promo $promo)
     {
-        //
+        $validatedData = $request->validate([
+            'kode_promo' => 'required',
+            'nama_promo' => 'required',
+            'nilai_promo' => 'required'
+        ]);
+        $promo->update($validatedData);
+        return redirect('/promo')->with('pesan', "promo $promo->kode_promo berhasil di update");
     }
 
     /**
@@ -80,6 +94,7 @@ class PromoController extends Controller
      */
     public function destroy(Promo $promo)
     {
-        //
+        $produk->delete();
+        return redirect()->route('promo.index')->with('pesan',"Data Promo $promo->kode_promo Berhasil");
     }
 }
