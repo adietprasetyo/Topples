@@ -2,13 +2,21 @@
 @section('content')
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <div class="row">
+        <h1>Data Gambar Produk</h1>
+        <hr>
+        <a href="{{route('gambar.create')}}" class="btn btn-primary">Tambah</a>
+        <div class="row my-2">
             @foreach($data as $item)
                 <div class="col-md-6">
                     <div class="d-flex justify-content-end">
                         <a href="{{route('gambar.edit',$item->id)}}" class="btn btn-warning">Edit</a>
+                        <form action="{{route('gambar.destroy',$item->id)}}" method="POST" enctype="multipart/form-data">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit"class="btn btn-danger ml-2">Hapus</button>
+                        </form>
                     </div>
-                    <h1 class="text-center">Produk Ke {{ $item->produk_id }}</h1>
+                    <a href="{{route('gambar.show',$item->id)}}"><h1 class="text-center">Produk ID : {{ $item->produk_id }}</h1></a>
                     <div id="carouselExampleIndicators-{{ $item->produk_id }}" class="carousel slide"
                         data-ride="carousel" >
                         <ol class="carousel-indicators bg-dark">

@@ -21,3 +21,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('gambar', 'GambarController');
+Route::resource('merk', 'MerkController');
+Route::resource('infoProduk', 'InfoProdukController');

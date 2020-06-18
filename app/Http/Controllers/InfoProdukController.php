@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\InfoProduk;
 use Illuminate\Http\Request;
+use App\Http\Requests\InfoProdukRequest;
 
 class InfoProdukController extends Controller
 {
@@ -15,6 +16,8 @@ class InfoProdukController extends Controller
     public function index()
     {
         //
+        $data=InfoProduk::all();
+        return view('info_produk.index',compact('data'));
     }
 
     /**
@@ -25,6 +28,7 @@ class InfoProdukController extends Controller
     public function create()
     {
         //
+        return view('info_produk.create');
     }
 
     /**
@@ -33,9 +37,12 @@ class InfoProdukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InfoProdukRequest $request)
     {
         //
+        $data=$request->all();
+        InfoProduk::create($data);
+        return redirect()->route('infoProduk.index');
     }
 
     /**
@@ -58,6 +65,7 @@ class InfoProdukController extends Controller
     public function edit(InfoProduk $infoProduk)
     {
         //
+        return view('info_produk.edit',compact('infoProduk'));
     }
 
     /**
@@ -67,9 +75,13 @@ class InfoProdukController extends Controller
      * @param  \App\InfoProduk  $infoProduk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InfoProduk $infoProduk)
+    public function update(InfoProdukRequest $request, InfoProduk $infoProduk)
     {
         //
+        $getId=$infoProduk->findOrFail($infoProduk->id);
+        $data=$request->all();
+        $getId->update($data);
+        return redirect()->route('infoProduk.index');
     }
 
     /**
@@ -81,5 +93,7 @@ class InfoProdukController extends Controller
     public function destroy(InfoProduk $infoProduk)
     {
         //
+        $infoProduk->delete();
+        return redirect()->route('infoProduk.index');
     }
 }

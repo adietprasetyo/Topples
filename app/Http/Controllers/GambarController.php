@@ -88,23 +88,23 @@ class GambarController extends Controller
         $data=$request->all();
         if($request->foto_1){
             Storage::delete('public/'.$dataId->foto_1);
-            $data['foto-1']=$request->file('foto-1')->store('assets/foto_produk','public');
+            $data['foto_1']=$request->file('foto_1')->store('assets/foto_produk','public');
         }
         if($request->foto_2){
             Storage::delete('public/'.$dataId->foto_2);
-            $data['foto-2']=$request->file('foto-2')->store('assets/foto_produk','public');
+            $data['foto_2']=$request->file('foto_2')->store('assets/foto_produk','public');
         }
         if($request->foto_3){
             Storage::delete('public/'.$dataId->foto_3);
-            $data['foto-3']=$request->file('foto-3')->store('assets/foto_produk','public');
+            $data['foto_3']=$request->file('foto_3')->store('assets/foto_produk','public');
         }
         if($request->foto_4){
             Storage::delete('public/'.$dataId->foto_4);
-            $data['foto-4']=$request->file('foto-4')->store('assets/foto_produk','public');
+            $data['foto_4']=$request->file('foto_4')->store('assets/foto_produk','public');
         }
         if($request->foto_5){
             Storage::delete('public/'.$dataId->foto_5);
-            $data['foto-5']=$request->file('foto-5')->store('assets/foto_produk','public');
+            $data['foto_5']=$request->file('foto_5')->store('assets/foto_produk','public');
         }
         $dataId->update($data);
         return redirect()->route('gambar.index');
