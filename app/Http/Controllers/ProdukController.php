@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Produk;
+use App\Promo;
+use App\InfoProduk;
+use App\Merk;
+use App\Gambar;
+use App\Ulasan;
+use App\Diskusi;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
