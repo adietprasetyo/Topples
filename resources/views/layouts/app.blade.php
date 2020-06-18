@@ -76,5 +76,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('srcipt-ops')
 </body>
 </html>

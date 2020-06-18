@@ -16,11 +16,11 @@ class CreateGambarsTable extends Migration
         Schema::create('gambars', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('produk_id')->unsigned();
-            $table->text('foto-1')->nullable();
-            $table->text('foto-2')->nullable();
-            $table->text('foto-3')->nullable();
-            $table->text('foto-4')->nullable();
-            $table->text('foto-5')->nullable();
+            $table->text('foto_1')->nullable();
+            $table->text('foto_2')->nullable();
+            $table->text('foto_3')->nullable();
+            $table->text('foto_4')->nullable();
+            $table->text('foto_5')->nullable();
             $table->timestamps();
 
             $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');

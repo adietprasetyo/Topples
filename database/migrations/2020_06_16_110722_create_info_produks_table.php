@@ -17,7 +17,7 @@ class CreateInfoProduksTable extends Migration
             $table->id();
             $table->bigInteger('produk_id')->unsigned();
             $table->integer('berat');
-            $table->varchar('kondisi');
+            $table->string('kondisi');
             $table->timestamps();
 
             $table->foreign('produk_id')->references('id')->on('produks')->onDelete ('cascade')->onUpdate('cascade');
