@@ -11,7 +11,7 @@ class Produk extends Model
 
     public function promo()
     {
-        return $this->hasOne(Promo::class, 'produk_id', 'id');
+        return $this->belongsTo(Promo::class, 'produk_id', 'id');
     }
 
     public function info_produk()
@@ -31,11 +31,11 @@ class Produk extends Model
 
     public function ulasan()
     {
-        return $this->hasOne(Ulasan::class, 'produk_id', 'id');
+        return $this->belongsTo(Ulasan::class, 'produk_id', 'id');
     }
 
     public function diskusi()
     {
-        return $this->hasOne(Diskusi::class, 'produk_id', 'id');
+        return $this->belongsTo(Diskusi::class, 'produk_id', 'id');
     }
 }
