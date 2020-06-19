@@ -110,6 +110,10 @@
             @yield('content')
         </main>
     </div>
+<<<<<<< HEAD
     @yield('script-ops')
+=======
+    @yield('srcipt-ops')
+>>>>>>> 6f99771839ebb9cfaef02709cf745f4c6ffbfa71
 </body>
 </html>

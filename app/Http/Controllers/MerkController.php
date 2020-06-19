@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Merk;
 use Illuminate\Http\Request;
+use App\Http\Requests\MerkRequest;
 
 class MerkController extends Controller
 {
@@ -15,6 +16,8 @@ class MerkController extends Controller
     public function index()
     {
         //
+        $data=Merk::all();
+        return view('merk.index',compact('data'));
     }
 
     /**
@@ -25,6 +28,7 @@ class MerkController extends Controller
     public function create()
     {
         //
+        return view('merk.create');
     }
 
     /**
@@ -33,9 +37,12 @@ class MerkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MerkRequest $request)
     {
         //
+        $data=$request->all();
+        Merk::create($data);
+        return redirect()->route('merk.index');
     }
 
     /**
@@ -47,6 +54,7 @@ class MerkController extends Controller
     public function show(Merk $merk)
     {
         //
+        
     }
 
     /**
@@ -58,6 +66,7 @@ class MerkController extends Controller
     public function edit(Merk $merk)
     {
         //
+        return view('merk.edit',compact('merk'));
     }
 
     /**
@@ -67,9 +76,13 @@ class MerkController extends Controller
      * @param  \App\Merk  $merk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merk $merk)
+    public function update(MerkRequest $request, Merk $merk)
     {
         //
+        $getId=$merk->findOrFail($merk->id);
+        $data=$request->all();
+        $getId->update($data);
+        return redirect()->route('merk.index');
     }
 
     /**
@@ -81,5 +94,7 @@ class MerkController extends Controller
     public function destroy(Merk $merk)
     {
         //
+        $merk->delete();
+        return redirect()->route('merk.index');
     }
 }
