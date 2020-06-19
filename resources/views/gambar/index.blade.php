@@ -16,9 +16,7 @@
                         <button type="submit"class="btn btn-danger ml-2">Hapus</button>
                         </form>
                     </div>
-                    @foreach ($produk as $data)
-                    <a href="{{route('gambar.show',$item->id)}}"><h1 class="text-center">Produk ID : {{ $data->nama_produk }}</h1></a>
-                    @endforeach
+                    <a href="{{route('gambar.show',$item->id)}}"><h1 class="text-center">Produk ID : {{ $item->produk->nama_produk }}</h1></a>
                     <div id="carouselExampleIndicators-{{ $item->produk_id }}" class="carousel slide"
                         data-ride="carousel" >
                         <ol class="carousel-indicators bg-dark">
