@@ -21,7 +21,7 @@ class Produk extends Model
 
     public function merk()
     {
-        return $this->hasOne(Merk::class, 'produk_id', 'id');
+        return $this->belongsTo(Merk::class, 'produk_id', 'id');
     }
 
     public function gambar()

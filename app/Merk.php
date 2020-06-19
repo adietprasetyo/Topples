@@ -8,4 +8,9 @@ class Merk extends Model
 {
     //
     protected $guarded=[];
+
+    public function produk()
+    {
+        return $this->hasMany('App\Produk', 'produk_id', 'id');
+    }
 }
