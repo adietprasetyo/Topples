@@ -25,7 +25,6 @@ class MerkRequest extends FormRequest
     {
         return [
             //
-            'produk_id'=>'required',
             'nama_merk'=>'required|min:2'
         ];
     }

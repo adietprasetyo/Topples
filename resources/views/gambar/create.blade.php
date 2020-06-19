@@ -7,12 +7,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="produk_id">Produk ID</label>
-                    <input type="number" name="produk_id" id="produk_id"
-                        class="form-control @error('produk_id') is-invalid @enderror"
-                        value="{{ old('produk_id') }}">
-                    @error('produk_id')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
+                    <select name="produk_id" id="produk_id" class="form-control">
+                        @foreach ($produk as $item)
+                            <option value="{{$item->id}}">{{$item->nama_produk}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="foto_1">Gambar 1</label>

@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Produk ID</th>
                 <th>Nama Merk</th>
                 <th colspan="2"class="text-center">Aksi</th>
             </tr>
@@ -19,7 +18,6 @@
             @forelse($data as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->produk_id }}</td>
                     <td>{{ $item->nama_merk }}</td>
                     <td align="center"><a href="{{ route('merk.edit',$item->id) }}"
                             class="btn btn-warning">Edit</a></td>

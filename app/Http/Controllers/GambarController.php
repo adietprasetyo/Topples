@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gambar;
 use Illuminate\Http\Request;
 use App\Http\Requests\GambarRequest;
+use App\Produk;
 use Illuminate\Support\Facades\Storage;
 class GambarController extends Controller
 {
@@ -16,8 +17,9 @@ class GambarController extends Controller
     public function index()
     {
         //
+        $produk=Produk::all();
         $data = Gambar::all();
-        return view('gambar.index',compact('data'));
+        return view('gambar.index',compact('data','produk'));
     }
 
     /**
@@ -28,7 +30,8 @@ class GambarController extends Controller
     public function create()
     {
         //
-        return view('gambar.create');
+        $produk=Produk::all();
+        return view('gambar.create',compact('produk'));
     }
 
     /**

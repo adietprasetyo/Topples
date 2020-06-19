@@ -52,14 +52,14 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" href="{{ url('/produks') }}">Data Produk</a>
-                                        <a class="dropdown-item" href="{{ url('/gambars') }}">Gambar</a>
-                                        <a class="dropdown-item" href="{{ url('/info_produks') }}">Info Produk</a>
+                                        <a class="dropdown-item" href="{{ url('/gambar') }}">Gambar</a>
+                                        <a class="dropdown-item" href="{{ url('/infoProduk') }}">Info Produk</a>
                                         <a class="dropdown-item" href="{{ url('/diskusis') }}">Diskusi</a>
                                         <a class="dropdown-item" href="{{ url('/ulasans') }}">Ulasan</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="{{ url('/merks') }}">Merk</a>
+                                  <a class="nav-link" href="{{ url('/merk') }}">Merk</a>
                                 </li>
                                 <li class="nav-item">
                                   <a class="nav-link" href="{{ url('/promos') }}">Promo</a>
@@ -110,10 +110,6 @@
             @yield('content')
         </main>
     </div>
-<<<<<<< HEAD
     @yield('script-ops')
-=======
-    @yield('srcipt-ops')
->>>>>>> 6f99771839ebb9cfaef02709cf745f4c6ffbfa71
 </body>
 </html>
