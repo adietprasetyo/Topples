@@ -22,8 +22,10 @@
         </div>
         <div class="form-group">
             <label for="kondisi">Kondisi</label>
-            <input type="text" class="form-control @error('kondisi') is-invalid @enderror" name="kondisi"
-                id="kondisi" value="{{old('kondisi')??$infoProduk->kondisi}}">
+            <select class="form-control @error('kondisi') is-invalid @enderror" name="kondisi" id="kondisi">
+                <option value="Baru" {{(old('kondisi')??$infoProduk->kondisi)=='Baru'?'selected':''}}>Baru</option>
+                <option value="Bekas"{{(old('kondisi')??$infoProduk->kondisi)=='Bekas'?'selected':''}}>Bekas</option>
+            </select>
             @error('kondisi')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
